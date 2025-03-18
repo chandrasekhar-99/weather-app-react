@@ -1,0 +1,149 @@
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+.sub-container{
+    background-image: linear-gradient(#076585,#ffffff);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    
+    max-width: 400px;
+}
+
+.main-heading{
+    font-size: clamp(1.8rem, 10vw, 3rem);
+    font-weight: bold;
+    color: #fff;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+.input-element-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    max-width: 450px;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 36px;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    margin-bottom: 12px;
+}
+
+.input-element{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 250px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+}
+
+
+.submit-button{
+    background-color: #FF5733;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px #C70039;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    font-size: 20px;
+}
+
+.submit-button:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px #C70039;
+}
+
+.city-country-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.city-country-span{
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+.weather-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 22px;
+    
+}
+
+.weather-info-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weather-icon{
+    width: 160px;
+    height: 160px;
+}
+
+.temp-span{
+    font-size: 35px;
+    font-weight: bold;
+    margin-left: 8px;
+}
+
+.weather-detail{
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.weather-detail span{
+    font-weight: bold;
+
+}
+
+
+/*Mobile Screen*/
+@media screen and (max-width: 480px) {
+    .sub-container{
+        width: 100%;
+        padding: 20px;
+        height: 100%;
+    }
+}
+
+/*Tablet Screen*/
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .sub-container{
+        width: 100%;
+        padding: 20px;
+        height: 100%;
+    }
+}
+
