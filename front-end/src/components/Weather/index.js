@@ -16,6 +16,7 @@ const Weather = () => {
     const [cityName, setCityName] = useState('')
     const [errMsg , setErrMsg] = useState('')
     const [error, setError] = useState(null)
+    
 
   
 
@@ -28,12 +29,25 @@ const Weather = () => {
 
     const handleSubmit = (event) => {
       event.preventDefault()
+
+      const proApiKey = process.env.REACT_APP_WEATHER_MAP_API_KEY
+      console.log(proApiKey)
+      console.log(process.env.REACT_APP_ENV)
+
+      if (!cityName.trim()) {
+        setErrMsg("Please enter a city name.");
+        return;
+      }
+
       setError(null);
       setErrMsg('');
 
+      
+
       const fetchData = async () => {
         try {
-             const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=2a5ada903f539d0c51f9deda388f6ca4&&units=metric`);
+            
+             const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_WEATHER_MAP_API_KEY}&&units=metric`);
               if (!response.ok) {
                 if (response.status === 404) {
                   setErrMsg("City not found. Please try again.");
@@ -64,25 +78,25 @@ const Weather = () => {
     
 
     return(
-        <div className='main-container'>
-          <div className='sub-container'>
+          <div className='main-container'>
             <h1 className='main-heading'>Current weather</h1>
             
               <form onSubmit={handleSubmit} className='form-container'>
                 <div className='input-element-container'>
                   <input 
-                    type="name" 
+                    type="text" 
                     id="cityName" 
                     value={cityName}
                     onChange={onChangeCityName}
                     placeholder='Enter City Name'
                     className='input-element'
+                    aria-label='Enter City Name'
                   />
                   <MagnifyingGlass size={28} weight="light"/>
                   </div>
                 <input type="submit" value="Enter" className='submit-button'/>
               </form>
-            
+              {errMsg && <p>*{errMsg}</p>}
 
             {data && (
               <div>
@@ -98,9 +112,9 @@ const Weather = () => {
             )}
 
             
-            {errMsg && <p>{errMsg}</p>}
+            
             </div>
-        </div>
+        
     )
 
 }
